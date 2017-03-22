@@ -49,7 +49,7 @@ public class Bag<Item> implements Iterable<Item> {
 
     @Override
     public Iterator<Item> iterator() {
-        return new BagIterator<Item>();
+        return new BagIterator();
     }
 
     public static void main(String[] args) {

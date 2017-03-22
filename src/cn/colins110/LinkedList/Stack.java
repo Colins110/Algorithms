@@ -5,7 +5,7 @@ import java.util.Iterator;
 /**
  * Created by colin on 2017/3/21 0021.
  */
-public class Stack<Item> //implements Iterable<Item>
+public class Stack<Item> implements Iterable<Item>
  {
 
     private Node first;
@@ -35,8 +35,27 @@ public class Stack<Item> //implements Iterable<Item>
         N--;
         return item;
     }
-   /* @Override
+    @Override
     public Iterator<Item> iterator() {
-        return null;
-    }*/
+        return new LinkedListiterator();
+    }
+    private class LinkedListiterator implements Iterator<Item>
+    {
+        private Node current=first;
+        @Override
+        public boolean hasNext() {
+            return first!=null;
+        }
+
+        @Override
+        public Item next() {
+            Item temp=current.item;
+            current=current.next;
+            return temp;
+        }
+
+        @Override
+        public void remove() {
+        }
+    }
 }
